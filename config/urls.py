@@ -24,4 +24,5 @@ urlpatterns = [
     path("api/user/signin", TokenObtainPairView.as_view(), name="token"),
     path("api/user/refresh", TokenRefreshView.as_view(), name="refresh_token"),
     path('api/', include('source.cafe.urls')),
+    path('', include('source.cart.urls'))
 ]

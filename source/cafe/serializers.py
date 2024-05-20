@@ -2,6 +2,8 @@ from rest_framework import serializers
 
 from django.contrib.auth.models import User
 
+from .models import Product, RuTag
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -36,3 +38,19 @@ class RegisterSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+class RuTagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RuTag
+        fields = '__all__' # ('id', 'name',)
+
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = '__all__' # ('id', 'name', 'description')
+        # lookup_field = 'slug'
+        # extra_kwargs = {
+        #     'url': {'lookup_field': 'slug'}
+        # }
