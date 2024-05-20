@@ -32,4 +32,4 @@ class Cart:
         self.cart = cart
     
     def save(self):
-        self.session.modified = False
+        self.session.modified = True
